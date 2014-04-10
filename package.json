@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "A not so tiny server",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoshuawuyts/server.git"
+  },
+  "keywords": [
+    "server",
+    "react",
+    "koa"
+  ],
+  "author": "Yoshua Wuyts <i@yoshuawuyts.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoshuawuyts/server/issues"
+  },
+  "homepage": "https://github.com/yoshuawuyts/server",
+  "devDependencies": {
+    "debug": "^0.8.0",
+    "should": "^3.3.0",
+    "mocha": "^1.18.2",
+    "supertest": "^0.10.0"
+  },
+  "dependencies": {
+    "koa": "^0.5.3",
+    "koa-resource-router": "^0.3.0",
+    "envify": "^1.2.1",
+    "react": "^0.10.0"
+  }
+}
