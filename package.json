@@ -4,7 +4,8 @@
   "description": "A not so tiny server",
   "main": "server/index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "start": "node --harmony-generators server/index.js",
+    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --recursive --harmony-generators"
   },
   "repository": {
     "type": "git",
@@ -29,8 +30,12 @@
   },
   "dependencies": {
     "koa": "^0.5.3",
-    "koa-resource-router": "^0.3.0",
     "envify": "^1.2.1",
-    "react": "^0.10.0"
+    "react": "^0.10.0",
+    "koa-router": "^3.1.2",
+    "vhostess": "^1.0.0",
+    "koa-response-time": "^1.0.2",
+    "koa-logger": "^1.2.0",
+    "koa-compress": "^1.0.4"
   }
 }
