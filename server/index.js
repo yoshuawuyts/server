@@ -5,12 +5,12 @@
  */
 
 var responseTime = require('koa-response-time');
-var assets = require('./assets/router');
 var compress = require('koa-compress');
 var compose = require('koa-compose');
 var base = require('./base/router');
 var logger = require('koa-logger');
 var api = require('./api/router');
+var send = require('koa-send');
 var http = require('http');
 var koa = require('koa');
 
@@ -48,7 +48,8 @@ app.use(function *(next) {
       break;
 
     case 'assets':
-      return yield compose(assets.middleware).call(this, next);
+      var opts = {root: __dirname + '/../build'};
+      return yield send(this, this.path, opts);
       break;
 
     default:

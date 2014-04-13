@@ -4,8 +4,21 @@
  * Module dependencies
  */
 
+var pathToRegexp = require('path-to-regexp');
 var router = require('koa-router');
+var React = require('react');
 var koa = require('koa');
+
+/**
+ * Stub React component
+ */
+
+var HelloMessage = React.createClass({
+  displayName: 'HelloMessage',
+  render: function() {
+    return React.DOM.div(null, "Hello you");
+  }
+});
 
 /**
  * Initialize 'app'.
@@ -24,5 +37,5 @@ module.exports = app;
  */
 
 app.use(function *(next) {
-  this.status = 200;
+  this.body = React.renderComponentToString(HelloMessage());
 });

@@ -38,6 +38,9 @@
     "koa-logger": "^1.2.0",
     "koa-compress": "^1.0.4",
     "koa-compose": "^2.2.0",
-    "koa-send": "^1.2.3"
+    "koa-send": "^1.2.3",
+    "react-async": "^0.9.1",
+    "react-router-component": "^0.18.2",
+    "path-to-regexp": "^0.1.2"
   }
 }
