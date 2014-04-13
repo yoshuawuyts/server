@@ -8,7 +8,7 @@ var router = require('koa-router');
 var koa = require('koa');
 
 /**
- * Initialize variables.
+ * Initialize 'app'.
  */
 
 var app = koa();

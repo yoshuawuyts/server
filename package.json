@@ -37,6 +37,7 @@
     "koa-response-time": "^1.0.2",
     "koa-logger": "^1.2.0",
     "koa-compress": "^1.0.4",
-    "koa-compose": "^2.2.0"
+    "koa-compose": "^2.2.0",
+    "koa-send": "^1.2.3"
   }
 }

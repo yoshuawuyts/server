@@ -23,7 +23,7 @@ var PORT = process.env.port || 1337;
 var app = koa();
 
 /**
- * Configuration
+ * Allow for subdomain detection.
  */
 
 app.subdomainOffset = 1;
@@ -58,7 +58,7 @@ app.use(function *(next) {
 });
 
 /**
- * Start listening
+ * Start listening.
  */
 
 app.listen(PORT);
