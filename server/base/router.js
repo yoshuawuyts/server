@@ -20,12 +20,6 @@ var app = koa();
 module.exports = app;
 
 /**
- * Initialize router.
- */
-
-app.use(router(app));
-
-/**
  * Always return files.
  */
 

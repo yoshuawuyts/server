@@ -4,7 +4,7 @@
  * Module dependencies
  */
 
-var router = require('koa-router')
+var router = require('koa-router');
 var koa = require('koa');
 
 /**

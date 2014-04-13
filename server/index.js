@@ -23,6 +23,12 @@ var PORT = process.env.port || 1337;
 var app = koa();
 
 /**
+ * Configuration
+ */
+
+app.subdomainOffset = 1;
+
+/**
  * Middleware
  */
 
@@ -37,11 +43,11 @@ app.use(compress());
 app.use(function *(next) {
   switch (this.subdomains[0]) {
 
-    case api: 
+    case 'api': 
       return yield compose(api.middleware).call(this, next);
       break;
 
-    case assets:
+    case 'assets':
       return yield compose(assets.middleware).call(this, next);
       break;
 
