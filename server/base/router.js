@@ -4,9 +4,6 @@
  * Module dependencies
  */
 
-var responseTime = require('koa-response-time');
-var compress = require('koa-compress');
-var logger = require('koa-logger');
 var router = require('koa-router');
 var koa = require('koa');
 
@@ -21,14 +18,6 @@ var app = koa();
  */
 
 module.exports = app;
-
-/**
- * Middleware
- */
-
-if (process.env.NODE_ENV != 'test') app.use(logger());
-app.use(responseTime());
-app.use(compress());
 
 /**
  * Initialize router.

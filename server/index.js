@@ -4,9 +4,12 @@
  * Module dependencies
  */
 
+var responseTime = require('koa-response-time');
 var assets = require('./assets/router');
+var compress = require('koa-compress');
+var compose = require('koa-compose');
 var base = require('./base/router');
-var vhostess = require('vhostess');
+var logger = require('koa-logger');
 var api = require('./api/router');
 var http = require('http');
 var koa = require('koa');
@@ -17,35 +20,41 @@ var koa = require('koa');
 
 var ENV = process.env.NODE_ENV || 'development';
 var PORT = process.env.port || 1337;
-var hostess = vhostess();
 var app = koa();
 
 /**
- * Routes 
- *
- * TODO: replace with native koa bindings > req.subdomains
- * 
+ * Middleware
  */
 
-hostess.use('assets.localhost', api.callback());
-hostess.use('blog.localhost', api.callback());
-hostess.use('api.localhost', api.callback());
-hostess.use('localhost', base.callback());
+if ('test' != process.env.NODE_ENV) app.use(logger());
+app.use(responseTime());
+app.use(compress());
 
 /**
- * Static file server.
+ * Subdomain routes.
  */
 
-hostess.use(function (req, res) {
-  res.statusCode = 404;
-  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-  res.end('subdomain needed');
-})
+app.use(function *(next) {
+  switch (this.subdomains[0]) {
+
+    case api: 
+      return yield compose(api.middleware).call(this, next);
+      break;
+
+    case assets:
+      return yield compose(assets.middleware).call(this, next);
+      break;
+
+    default:
+      return yield compose(base.middleware).call(this, next);
+      break;
+  }
+});
 
 /**
- * Listen to requests.
+ * Start listening
  */
 
-http.createServer(hostess).listen(PORT);
+app.listen(PORT);
 console.log('Environment: ' + ENV);
 console.log('Port: ' + PORT);
