@@ -4,7 +4,7 @@
  * Module dependencies
  */
 
-var HelloMessage = require('../../client/index');
+var MainComponent = require('../../client/index');
 var router = require('koa-router');
 var React = require('react');
 var koa = require('koa');
@@ -27,5 +27,5 @@ module.exports = app;
  */
 
 app.use(function *(next) {
-  this.body = React.renderComponentToString(HelloMessage());
+  this.body = React.renderComponentToString(MainComponent());
 });

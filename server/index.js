@@ -36,7 +36,7 @@ app.subdomainOffset = 1;
 if ('test' != process.env.NODE_ENV) app.use(logger());
 app.use(responseTime());
 app.use(compress());
-app.use(helmet.defaults());
+// app.use(helmet.defaults());
 
 /**
  * Subdomain routes.
@@ -51,12 +51,7 @@ app.use(function *(next) {
 
     case 'assets':
       var opts = __dirname + '/../build';
-      return yield compose([
-        serve(opts, {defer: true}),
-        function *(next) {
-          if (!this.body) this.status = 404;
-        }
-      ]);
+      return serve(opts, {defer: true})
       break;
 
     default:
