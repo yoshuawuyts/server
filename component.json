@@ -1,0 +1,10 @@
+{
+  "name": "server",
+  "private": true,
+  "scripts": [
+    "client/index.js"
+  ],
+  "templates": [
+    "client/index.html"
+  ]
+}

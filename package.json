@@ -33,7 +33,6 @@
     "envify": "^1.2.1",
     "react": "^0.10.0",
     "koa-router": "^3.1.2",
-    "vhostess": "^1.0.0",
     "koa-response-time": "^1.0.2",
     "koa-logger": "^1.2.0",
     "koa-compress": "^1.0.4",
@@ -41,6 +40,6 @@
     "koa-send": "^1.2.3",
     "react-async": "^0.9.1",
     "react-router-component": "^0.18.2",
-    "path-to-regexp": "^0.1.2"
+    "koa-helmet": "0.0.1"
   }
 }

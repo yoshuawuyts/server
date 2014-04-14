@@ -9,6 +9,7 @@ var compress = require('koa-compress');
 var compose = require('koa-compose');
 var base = require('./base/router');
 var logger = require('koa-logger');
+var helmet = require('koa-helmet');
 var api = require('./api/router');
 var send = require('koa-send');
 var http = require('http');
@@ -35,6 +36,7 @@ app.subdomainOffset = 1;
 if ('test' != process.env.NODE_ENV) app.use(logger());
 app.use(responseTime());
 app.use(compress());
+app.use(helmet.defaults());
 
 /**
  * Subdomain routes.

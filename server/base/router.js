@@ -4,21 +4,9 @@
  * Module dependencies
  */
 
-var pathToRegexp = require('path-to-regexp');
 var router = require('koa-router');
 var React = require('react');
 var koa = require('koa');
-
-/**
- * Stub React component
- */
-
-var HelloMessage = React.createClass({
-  displayName: 'HelloMessage',
-  render: function() {
-    return React.DOM.div(null, "Hello you");
-  }
-});
 
 /**
  * Initialize 'app'.
@@ -31,6 +19,17 @@ var app = koa();
  */
 
 module.exports = app;
+
+/**
+ * Stub React component
+ */
+
+var HelloMessage = React.createClass({
+  displayName: 'HelloMessage',
+  render: function() {
+    return React.DOM.div(null, "Hello you");
+  }
+});
 
 /**
  * Always return files.
