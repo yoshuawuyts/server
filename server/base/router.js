@@ -4,6 +4,7 @@
  * Module dependencies
  */
 
+var HelloMessage = require('../../client/index');
 var router = require('koa-router');
 var React = require('react');
 var koa = require('koa');
@@ -20,16 +21,6 @@ var app = koa();
 
 module.exports = app;
 
-/**
- * Stub React component
- */
-
-var HelloMessage = React.createClass({
-  displayName: 'HelloMessage',
-  render: function() {
-    return React.DOM.div(null, "Hello you");
-  }
-});
 
 /**
  * Always return files.

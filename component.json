@@ -2,9 +2,6 @@
   "name": "server",
   "private": true,
   "scripts": [
-    "client/index.js"
-  ],
-  "templates": [
-    "client/index.html"
+    "client/router.js"
   ]
 }

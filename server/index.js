@@ -11,7 +11,7 @@ var base = require('./base/router');
 var logger = require('koa-logger');
 var helmet = require('koa-helmet');
 var api = require('./api/router');
-var send = require('koa-send');
+var serve = require('koa-static');
 var http = require('http');
 var koa = require('koa');
 
@@ -50,8 +50,13 @@ app.use(function *(next) {
       break;
 
     case 'assets':
-      var opts = {root: __dirname + '/../build'};
-      return yield send(this, this.path, opts);
+      var opts = __dirname + '/../build';
+      return yield compose([
+        serve(opts, {defer: true}),
+        function *(next) {
+          if (!this.body) this.status = 404;
+        }
+      ]);
       break;
 
     default:

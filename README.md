@@ -4,10 +4,7 @@ A not so tiny server.
 
 The purpose of writing this is to get familiar with [Koa](koajs.com) servers and server-side rendering of [React](facebook.github.io/react) components, with a sprinkle of SysOps.
 
-## Description
-This is an example blog. It's accessible on `api.localhost:8080` and `localhost:8080`.
-
-It has the following layers.
+## Layers
 ````
 react
 =====================
@@ -21,6 +18,7 @@ postgres 9.3.4
 phusion/baseImage
 ````
 
+## Directory structure
 ````
 .
 ├── server
@@ -38,6 +36,13 @@ phusion/baseImage
     ├── server
     ├── client
     └── integration
+````
+
+## Subdomains
+````
+api.localhost
+assets.localhost
+localhost
 ````
 
 ## License
