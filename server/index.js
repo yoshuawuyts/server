@@ -10,8 +10,8 @@ var compose = require('koa-compose');
 var base = require('./base/router');
 var logger = require('koa-logger');
 var helmet = require('koa-helmet');
-var api = require('./api/router');
 var serve = require('koa-static');
+var api = require('./api/index');
 var http = require('http');
 var koa = require('koa');
 

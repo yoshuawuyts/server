@@ -29,17 +29,18 @@
     "supertest": "^0.10.0"
   },
   "dependencies": {
-    "koa": "^0.5.3",
     "envify": "^1.2.1",
-    "react": "^0.10.0",
-    "koa-router": "^3.1.2",
-    "koa-response-time": "^1.0.2",
-    "koa-logger": "^1.2.0",
-    "koa-compress": "^1.0.4",
+    "koa": "^0.5.3",
     "koa-compose": "^2.2.0",
+    "koa-compress": "^1.0.4",
+    "koa-helmet": "0.0.1",
+    "koa-logger": "^1.2.0",
+    "koa-response-time": "^1.0.2",
+    "koa-router": "^3.1.2",
+    "koa-static": "^1.4.3",
+    "react": "^0.10.0",
     "react-async": "^0.9.1",
     "react-router-component": "^0.18.2",
-    "koa-helmet": "0.0.1",
-    "koa-static": "^1.4.3"
+    "triplesec": "^3.0.10"
   }
 }
