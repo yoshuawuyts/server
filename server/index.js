@@ -50,8 +50,7 @@ app.use(function *(next) {
       break;
 
     case 'assets':
-      var opts = __dirname + '/../build';
-      return serve(opts, {defer: true})
+      return yield serve(__dirname + '/../build');
       break;
 
     default:
