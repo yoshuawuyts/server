@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "envify": "^1.2.1",
-    "koa": "^0.5.3",
+    "koa": "^2.2.0",
     "koa-compose": "^2.2.0",
     "koa-compress": "^1.0.4",
     "koa-helmet": "0.0.1",
