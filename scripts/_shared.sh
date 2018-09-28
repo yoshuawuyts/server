@@ -4,14 +4,14 @@ _link () {
   echo "[link] $1 -> $2"
   mkdir -p "$(dirname $2)"
   [ -e "$2" ] && unlink "$2"
-  ln -s "$1" "$2"
+  ln -fs "$1" "$2"
 }
 
 _sudo_link () {
   echo "[link] $1 -> $2"
   mkdir -p "$(dirname $2)"
   [ -e "$2" ] && sudo unlink "$2"
-  sudo ln -s "$1" "$2"
+  sudo ln -fs "$1" "$2"
 }
 
 _sudo_enable () {
