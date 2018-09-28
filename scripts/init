@@ -1,0 +1,24 @@
+#!/bin/bash
+set -ex
+dirname="$(dirname "$(readlink -f "$0")")"
+source "$dirname/_shared.sh"
+
+# init dir structure
+mkdir -p "$HOME/services"
+mkdir -p "$HOME/raw"
+mkdir -p "$HOME/blog"
+mkdir -p "$HOME/bin"
+
+# copy files
+_link "$__dirname/dotfiles" "$HOME/dotfiles"
+_link "$__dirname/README.md" "$HOME/README.md"
+_link "$__dirname/scripts" "$HOME/scripts"
+
+# link executables
+for f in $dirname/../bin/*; do
+  chmod +x "$f"
+  extname="$(echo "$f" | tr '.' ' ' | awk '{ print $2 }')"
+  [ "$extname" = 'sh' ] && continue
+  dst="/usr/local/bin$(echo "$f" | sed "s|$dirname||")"
+  _sudo_link "$f" "$dst"
+done
