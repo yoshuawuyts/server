@@ -22,3 +22,6 @@ for f in $dirname/../bin/*; do
   dst="/usr/local/bin$(echo "$f" | sed "s|$dirname||")"
   _sudo_link "$f" "$dst"
 done
+
+# install dotfiles
+"$dirname/install_dotfiles"
