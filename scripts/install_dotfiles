@@ -12,3 +12,8 @@ _link "$src" "$dst"
 src="$dotfiles/nginx.conf"
 dst="/etc/nginx/nginx.conf"
 _link "$src" "$dst"
+
+mkdir -p /var/www/yoshuawuyts
+src="$dirname/../templates/index.html"
+dst="/var/www/yoshuawuyts/index.html"
+_link "$src" "$dst"
