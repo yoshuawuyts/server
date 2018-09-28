@@ -1,6 +1,6 @@
 resource "digitalocean_domain" "default" {
  name = "yoshuawuyts.com"
- ip_address = "${digitalocean_droplet.debian-s-1vcpu-1gb-ams3-01.ipv4_address}"
+ ip_address = "${digitalocean_droplet.web.ipv4_address}"
 }
 
 resource "digitalocean_record" "CNAME-www" {
