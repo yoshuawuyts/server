@@ -1,0 +1,21 @@
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export EDITOR=vim
+export LANG
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+set -o vi
+
+alias g='git'
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls -alph --color=auto --group-directories-first'
+alias s='git status --short'
+
+if [ -f /etc/bash_completion ]; then
+  /etc/bash_completion
+fi
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
