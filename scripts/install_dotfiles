@@ -8,3 +8,7 @@ dotfiles="$dirname/../dotfiles"
 src="$dotfiles/bashrc"
 dst="$HOME/.bashrc"
 _link "$src" "$dst"
+
+src="$dotfiles/nginx.conf"
+dst="/etc/nginx/nginx.conf"
+_link "$src" "$dst"
