@@ -9,10 +9,10 @@ Create a `terraform.tfvars` file in the root dir, and populate it with the
 - [Generate a new token](https://cloud.digitalocean.com/account/api)
 
 ```tf
-variable "do_token" {}
-variable "pub_key" {}
-variable "pvt_key" {}
-variable "ssh_fingerprint" {}
+do_token = "{token}"
+pub_key = "~/.ssh/digital_ocean.pub"
+pvt_key = "~/.ssh/digital_ocean"
+ssh_fingerprint = "{00:00:00:00:00:00:00:00}"
 ```
 
 ## License
