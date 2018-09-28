@@ -1,4 +1,3 @@
-variable pub_key {}
 variable pvt_key {}
 
 resource "digitalocean_droplet" "web" {
@@ -13,23 +12,24 @@ resource "digitalocean_droplet" "web" {
   backups = true
   ipv6 = true
 
-  ssh_keys = [
-    "${digitalocean_ssh_key.default.fingerprint}"
-  ]
-
-  connection {
-    user = "root"
-    type = "ssh"
-    private_key = "${file(var.pvt_key)}"
-    timeout = "2m"
-  }
+  ssh_keys = ["${digitalocean_ssh_key.default.fingerprint}"]
 
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
+      "sudo systemctl stop apt-daily.timer",
       "sudo apt-get update",
-      "sudo apt-get -y install nginx"
+      "sudo apt-get -y install mosh firewalld vim tree tmux git",
+      "sudo systemctl start apt-daily.timer",
     ]
+
+    connection {
+      user = "root"
+      type = "ssh"
+      agent = false
+      private_key = "${file(var.pvt_key)}"
+      timeout = "2m"
+    }
   }
 }
 
