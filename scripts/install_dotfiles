@@ -2,3 +2,9 @@
 set -ex
 dirname="$(dirname "$(readlink -f "$0")")"
 source "$dirname/_shared.sh"
+
+dotfiles="$dirname/../dotfiles"
+
+src="$dotfiles/bashrc"
+dst="$HOME/.bashrc"
+_link "$src" "$dst"
