@@ -1,4 +1,3 @@
-variable ssh_fingerprint {}
 variable pub_key {}
 variable pvt_key {}
 
@@ -15,7 +14,7 @@ resource "digitalocean_droplet" "web" {
   ipv6 = true
 
   ssh_keys = [
-    "${var.ssh_fingerprint}"
+    "${digitalocean_ssh_key.default.fingerprint}"
   ]
 
   connection {

@@ -12,7 +12,6 @@ Create a `terraform.tfvars` file in the root dir, and populate it with the
 do_token = "{token}"
 pub_key = "~/.ssh/digital_ocean.pub"
 pvt_key = "~/.ssh/digital_ocean"
-ssh_fingerprint = "{00:00:00:00:00:00:00:00}"
 ```
 
 ## License
