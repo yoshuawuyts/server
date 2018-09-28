@@ -13,7 +13,7 @@ ignore="$ignore|.nyc_output"
 # Recursively show all files in a folder
 # as a tree
 if [ "$1" ]; then
-  tree -aAFC --dirsfirst -L 3 -I "$ignore" "$1"
+  tree -aFC --dirsfirst -L 3 -I "$ignore" "$1"
 else
-  tree -aAFC --dirsfirst -L 3 -I "$ignore"
+  tree -aFC --dirsfirst -L 3 -I "$ignore"
 fi
