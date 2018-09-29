@@ -8,7 +8,6 @@ echo 'deb-src http://mirrors.digitalocean.com/debian stretch-backports main cont
 sudo apt-get update
 sudo apt install -y python-certbot-nginx -t stretch-backports
 
-# TODO: use --certonly
 sudo certbot -n --nginx \
   -d yoshuawuyts.com \
   -d www.yoshuawuyts.com \
