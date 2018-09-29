@@ -21,9 +21,3 @@ cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.default
 src="$dotfiles/nginx.conf"
 dst="/etc/nginx/nginx.conf"
 _link "$src" "$dst"
-
-# We need to copy here because symlinks are tricky for public data
-mkdir -p /var/www/yoshuawuyts
-src="$dirname/../templates/index.html"
-dst="/var/www/yoshuawuyts/index.html"
-cp "$src" "$dst"

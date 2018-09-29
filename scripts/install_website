@@ -1,0 +1,10 @@
+#!/bin/bash
+set -ex
+dirname="$(dirname "$(readlink -f "$0")")"
+source "$dirname/_shared.sh"
+
+# We need to copy here because symlinks are tricky for public data
+mkdir -p /var/www/yoshuawuyts
+src="$dirname/../templates/index.html"
+dst="/var/www/yoshuawuyts/index.html"
+cp "$src" "$dst"

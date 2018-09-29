@@ -28,6 +28,7 @@ _link "$dirname/README.md" "$HOME/README.md"
 _link "$dirname/scripts" "$HOME/scripts"
 
 "$dirname/install_binaries"
+"$dirname/install_website"
 "$dirname/install_ripgrep"
 "$dirname/install_firewalld"
 "$dirname/install_dotfiles"
