@@ -11,5 +11,6 @@ _link "$dirname/dotfiles" "$HOME/dotfiles"
 _link "$dirname/README.md" "$HOME/README.md"
 _link "$dirname/scripts" "$HOME/scripts"
 
+"$dirname/install_ripgrep"
 "$dirname/install_binaries"
 "$dirname/install_dotfiles"
