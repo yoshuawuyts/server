@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+
+set -ex
+dirname="$(dirname "$(readlink -f "$0")")"
+source "$dirname/_shared.sh"
 
 echo 'deb http://mirrors.digitalocean.com/debian stretch-backports main contrib non-free' \
   >> /etc/apt/sources.list
@@ -14,3 +18,7 @@ sudo certbot certonly -n --standalone \
   -d www.yoshuawuyts.com \
   -m yoshuawuyts@gmail.com \
   --agree-tos
+
+if [ ! -f /etc/cron.d/certbot ]; then
+  _link "$dirname/../cron/certbot" "/etc/cron.d/certbot"
+fi
