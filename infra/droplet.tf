@@ -51,8 +51,3 @@ resource "digitalocean_volume_attachment" "persistent" {
   droplet_id = "${digitalocean_droplet.web.id}"
   volume_id = "${digitalocean_volume.persistent.id}"
 }
-
-resource "digitalocean_floating_ip" "static" {
-   droplet_id = "${digitalocean_droplet.web.id}"
-   region     = "${digitalocean_droplet.web.region}"
- }
