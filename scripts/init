@@ -3,6 +3,12 @@ set -ex
 dirname="$(dirname "$(readlink -f "$0")")"
 source "$dirname/_shared.sh"
 
+echo 'deb http://mirrors.digitalocean.com/debian stretch-backports main contrib non-free' \
+  >> /etc/apt/sources.list
+echo 'deb-src http://mirrors.digitalocean.com/debian stretch-backports main contrib non-free' \
+  >> /etc/apt/sources.list
+sudo apt-get update
+
 sudo apt-get -y install \
   curl \
   firewalld \
