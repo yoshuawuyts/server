@@ -4,10 +4,8 @@ dirname="$(dirname "$(readlink -f "$0")")"
 source "$dirname/_shared.sh"
 
 mkdir -p "$HOME/services"
-mkdir -p "$HOME/raw"
 mkdir -p "$HOME/blog"
 mkdir -p "$HOME/bin"
-mkdir -p "$HOME/logs"
 
 _link "$dirname/dotfiles" "$HOME/dotfiles"
 _link "$dirname/README.md" "$HOME/README.md"
@@ -15,6 +13,3 @@ _link "$dirname/scripts" "$HOME/scripts"
 
 "$dirname/install_binaries"
 "$dirname/install_dotfiles"
-
-_link "/var/log/nginx/access.log" "$HOME/logs/nginx_access.log"
-_link "/var/log/nginx/error.log" "$HOME/logs/nginx_error.log"

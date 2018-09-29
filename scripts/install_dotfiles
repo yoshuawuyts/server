@@ -9,12 +9,21 @@ src="$dotfiles/bashrc"
 dst="$HOME/.bashrc"
 _link "$src" "$dst"
 
+src="$dotfiles/gitconfig"
+dst="$HOME/.gitconfig"
+_link "$src" "$dst"
+
+src="$dotfiles/vimrc"
+dst="$HOME/.vimrc"
+_link "$src" "$dst"
+
 cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.default
 src="$dotfiles/nginx.conf"
 dst="/etc/nginx/nginx.conf"
 _link "$src" "$dst"
 
+# We need to copy here because symlinks are tricky for public data
 mkdir -p /var/www/yoshuawuyts
 src="$dirname/../templates/index.html"
 dst="/var/www/yoshuawuyts/index.html"
-_link "$src" "$dst"
+cp "$src" "$dst"

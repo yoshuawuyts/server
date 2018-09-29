@@ -1,0 +1,14 @@
+[color]
+  ui = auto
+
+[alias]
+  c = commit
+  d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat --color-words"
+  l = log --graph --decorate --pretty=oneline --abbrev-commit -5
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+
+[difftool]
+  prompt = false
+
+[diff]
+  tool = vimdiff
