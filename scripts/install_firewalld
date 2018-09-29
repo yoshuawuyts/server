@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
+sudo firewall-cmd --add-service=mosh
+sudo firewall-cmd --add-service=http
+sudo firewall-cmd --add-service=https
+sudo firewall-cmd --add-service=mosh --permanent
+sudo firewall-cmd --add-service=http --permanent
+sudo firewall-cmd --add-service=https --permanent

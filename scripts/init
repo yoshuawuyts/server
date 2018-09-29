@@ -3,6 +3,16 @@ set -ex
 dirname="$(dirname "$(readlink -f "$0")")"
 source "$dirname/_shared.sh"
 
+sudo apt-get -y install \
+  curl \
+  firewalld \
+  man \
+  mosh \
+  nginx \
+  tmux \
+  tree \
+  vim
+
 mkdir -p "$HOME/services"
 mkdir -p "$HOME/blog"
 mkdir -p "$HOME/bin"
@@ -11,6 +21,12 @@ _link "$dirname/dotfiles" "$HOME/dotfiles"
 _link "$dirname/README.md" "$HOME/README.md"
 _link "$dirname/scripts" "$HOME/scripts"
 
-"$dirname/install_ripgrep"
 "$dirname/install_binaries"
+"$dirname/install_ripgrep"
+"$dirname/install_firewalld"
 "$dirname/install_dotfiles"
+
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+rm /root/.cloud-locale-test.skip
