@@ -14,7 +14,7 @@ alias ll='ls -alph --color=auto --group-directories-first'
 alias s='git status --short'
 
 if [ -f /etc/bash_completion ]; then
-  /etc/bash_completion
+  . /etc/bash_completion
 fi
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
