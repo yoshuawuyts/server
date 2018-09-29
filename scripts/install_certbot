@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo 'deb http://deb.debian.org/debian stretch-backports main contrib non-free' \
+  >> /etc/apt/sources.list
+echo 'deb-src http://deb.debian.org/debian stretch-backports main contrib non-free' \
+  >> /etc/apt/sources.list
+
+sudo apt install python-certbot-nginx -t stretch-backports
