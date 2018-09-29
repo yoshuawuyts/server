@@ -30,6 +30,7 @@ resource "digitalocean_droplet" "web" {
       "sudo firewall-cmd --add-service=https --permanent",
       "sudo systemctl enable nginx",
       "sudo systemctl start nginx",
+      "rm /root/.cloud-locale-test.skip",
       "sudo systemctl start apt-daily.timer",
     ]
 
