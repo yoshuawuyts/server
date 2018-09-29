@@ -21,8 +21,8 @@ resource "digitalocean_droplet" "web" {
       "sudo apt-get update",
       "sudo apt-get -y install mosh firewalld vim tree tmux git man nginx",
       "sudo systemctl enable nginx",
-      "sudo systemctl start nginx"
-      # "sudo systemctl start apt-daily.timer",
+      "sudo systemctl start nginx",
+      "sudo systemctl start apt-daily.timer",
     ]
 
     connection {
