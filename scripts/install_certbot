@@ -1,8 +1,16 @@
 #!/bin/sh
 
-echo 'deb http://deb.debian.org/debian stretch-backports main contrib non-free' \
+echo 'deb http://mirrors.digitalocean.com/debian stretch-backports main contrib non-free' \
   >> /etc/apt/sources.list
-echo 'deb-src http://deb.debian.org/debian stretch-backports main contrib non-free' \
+echo 'deb-src http://mirrors.digitalocean.com/debian stretch-backports main contrib non-free' \
   >> /etc/apt/sources.list
 
-sudo apt install python-certbot-nginx -t stretch-backports
+sudo apt-get update
+sudo apt install -y python-certbot-nginx -t stretch-backports
+
+# TODO: use --certonly
+sudo certbot -n --nginx \
+  -d yoshuawuyts.com \
+  -d www.yoshuawuyts.com \
+  -m yoshuawuyts@gmail.com \
+  --agree-tos
