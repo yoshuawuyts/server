@@ -48,7 +48,7 @@ resource "digitalocean_volume_attachment" "persistent" {
   volume_id = "${digitalocean_volume.persistent.id}"
 }
 
-#174.138.10.132 resource "digitalocean_floating_ip" "static" {
-#   droplet_id = "${digitalocean_droplet.web.id}"
-#   region     = "${digitalocean_droplet.web.region}"
-# }
+resource "digitalocean_floating_ip" "static" {
+   droplet_id = "${digitalocean_droplet.web.id}"
+   region     = "${digitalocean_droplet.web.region}"
+ }
