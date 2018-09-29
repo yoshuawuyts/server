@@ -18,6 +18,7 @@ resource "digitalocean_droplet" "web" {
     inline = [
       "export PATH=$PATH:/usr/bin",
       "sudo systemctl stop apt-daily.timer",
+      "pkill apt",
       "sudo apt-get update",
       "sudo apt-get -y install mosh firewalld vim tree tmux git man nginx curl",
       "sudo systemctl enable firewalld",
@@ -28,6 +29,8 @@ resource "digitalocean_droplet" "web" {
       "sudo firewall-cmd --add-service=mosh --permanent",
       "sudo firewall-cmd --add-service=http --permanent",
       "sudo firewall-cmd --add-service=https --permanent",
+      "git clone https://github.com/yoshuawuyts/server.git src/server",
+      "./src/server/scripts/init",
       "sudo systemctl enable nginx",
       "sudo systemctl start nginx",
       "rm /root/.cloud-locale-test.skip",
