@@ -10,9 +10,9 @@ dst="$HOME/.bashrc"
 _link "$src" "$dst"
 
 cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.default
-# src="$dotfiles/nginx.conf"
-# dst="/etc/nginx/nginx.conf"
-# _link "$src" "$dst"
+src="$dotfiles/nginx.conf"
+dst="/etc/nginx/nginx.conf"
+_link "$src" "$dst"
 
 mkdir -p /var/www/yoshuawuyts
 src="$dirname/../templates/index.html"
