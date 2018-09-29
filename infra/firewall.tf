@@ -1,5 +1,5 @@
 resource "digitalocean_firewall" "web" {
-  name = "only-22-80-and-443"
+  name = "Web"
 
   droplet_ids = ["${digitalocean_droplet.web.id}"]
 
