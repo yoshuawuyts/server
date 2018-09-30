@@ -17,6 +17,10 @@ src="$dotfiles/vimrc"
 dst="$HOME/.vimrc"
 _link "$src" "$dst"
 
+src="$dotfiles/tmux.conf"
+dst="$HOME/.tmux.conf"
+_link "$src" "$dst"
+
 cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.default
 src="$dotfiles/nginx.conf"
 dst="/etc/nginx/nginx.conf"
