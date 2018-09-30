@@ -8,4 +8,13 @@ resource "digitalocean_record" "CNAME-www" {
   type = "CNAME"
   name = "www"
   value = "@"
+  ttl = 3600
+}
+
+resource "digitalocean_record" "A-stats" {
+  domain = "${digitalocean_domain.default.name}"
+  type = "A"
+  name = "stats"
+  value = "${digitalocean_droplet.web.ipv4_address}"
+  ttl = 3600
 }
