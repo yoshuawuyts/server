@@ -8,7 +8,9 @@ sudo apt install -y python-certbot-nginx -t stretch-backports
 # alternatively use `certbot run -n --nginx`, but that will modify conf files
 sudo certbot run -n --nginx \
   -d yoshuawuyts.com \
+  -d www.yoshuawuyts.com \
   -d stats.yoshuawuyts.com \
+  -d www.stats.yoshuawuyts.com \
   -m yoshuawuyts@gmail.com \
   --agree-tos
 # certbot --nginx rollback
