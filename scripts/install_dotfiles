@@ -21,3 +21,8 @@ cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.default
 src="$dotfiles/nginx.conf"
 dst="/etc/nginx/nginx.conf"
 _link "$src" "$dst"
+
+src="$dotfiles/local.conf"
+dst="/etc/sysctl.d/local.conf"
+_link "$src" "$dst"
+sysctl --system # reload config
