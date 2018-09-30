@@ -14,5 +14,11 @@ pub_key = "~/.ssh/digital_ocean.pub"
 pvt_key = "~/.ssh/digital_ocean"
 ```
 
+## Stats
+Stats can be read from `chronograf` on `https://stats.yoshuawuyts.com`. To
+set it up, follow the instructions on:
+
+- https://docs.influxdata.com/chronograf/v1.3/administration/security-best-practices/#chronograf-with-oauth-2-0-authentication
+
 ## License
 [MIT](./LICENSE-MIT) OR [Apache-2.0](./LICENSE-APACHE)
