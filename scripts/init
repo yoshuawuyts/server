@@ -3,12 +3,15 @@ set -ex
 dirname="$(dirname "$(readlink -f "$0")")"
 source "$dirname/_shared.sh"
 
+# setup apt
 echo 'deb http://mirrors.digitalocean.com/debian stretch-backports main contrib non-free' \
   >> /etc/apt/sources.list
 echo 'deb-src http://mirrors.digitalocean.com/debian stretch-backports main contrib non-free' \
   >> /etc/apt/sources.list
 sudo apt-get update
+sudo apt-get install apt-transport-https
 
+# install dependencies
 sudo apt-get -y install \
   curl \
   firewalld \
@@ -19,21 +22,28 @@ sudo apt-get -y install \
   tree \
   vim
 
+# setup home dir
 mkdir -p "$HOME/services"
 mkdir -p "$HOME/blog"
 mkdir -p "$HOME/bin"
-
 _link "$dirname/dotfiles" "$HOME/dotfiles"
 _link "$dirname/README.md" "$HOME/README.md"
 _link "$dirname/scripts" "$HOME/scripts"
+rm -f /root/.cloud-locale-test.skip
 
-"$dirname/install_binaries"
-"$dirname/install_website"
-"$dirname/install_ripgrep"
-"$dirname/install_firewalld"
+# install local deps first
 "$dirname/install_dotfiles"
+"$dirname/install_binaries"
 
+# install service deps
+"$dirname/install_certbot"
+"$dirname/install_firewalld"
+"$dirname/install_ripgrep"
+"$dirname/install_swap"
+"$dirname/install_tick"
+"$dirname/install_website"
+
+# enable systemd services last
+sudo timedatectl set-timezone Europe/Berlin
 sudo systemctl enable nginx
 sudo systemctl start nginx
-
-rm /root/.cloud-locale-test.skip
