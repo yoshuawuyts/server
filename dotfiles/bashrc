@@ -6,6 +6,27 @@ export LANG
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+clr_reset="$(tput sgr0)"
+clr_red="$(tput setaf 1)"
+clr_blue="$(tput setaf 4)"
+clr_cyan="$(tput setaf 6)"
+clr_white="$(tput setaf 7)"
+
+prompt_command () {
+  if [ $? -eq 0 ]; then local clr_status="$clr_white"
+  else local clr_status="$clr_red"; fi
+
+  if [ $USER = root ]; then local sign="#"
+  else local sign="$"; fi
+
+  local timestamp="$(date +'%H:%M:%S')"
+  local top="$timestamp \u@\H"
+  local prompt="$clr_blue[\w]$clr_reset $clr_status$sign$clr_reset"
+
+  PS1="$(printf "\n\r%s\n%s " "$top" "$prompt")"
+}
+PROMPT_COMMAND=prompt_command
+
 set -o vi
 
 alias g='git'
