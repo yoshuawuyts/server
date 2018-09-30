@@ -1,0 +1,15 @@
+#!/bin/bash
+set -ex
+dirname="$(dirname "$(readlink -f "$0")")"
+source "$dirname/_shared.sh"
+
+# Create swapfile
+sudo fallocate -l 4G /swapfile
+
+# Enabling swapfile
+sudo chmod 600 /swapfile  # set permissions
+sudo mkswap /swapfile     # setup swap space
+sudo swapon /swapfile     # use swap space
+
+# Persist swapfile
+printf '/swapfile   none    swap    sw    0   0\n' >> /etc/fstab
