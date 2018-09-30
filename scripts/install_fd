@@ -1,0 +1,7 @@
+#!/bin/bash
+set -ex
+
+# This should become redundant on the next major Debian release.
+curl -LO https://github.com/sharkdp/fd/releases/download/7.1.0/fd_7.1.0_amd64.deb
+sudo dpkg -i fd_7.1.0_amd64.deb
+rm fd_7.1.0_amd64.deb
