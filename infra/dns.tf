@@ -26,3 +26,19 @@ resource "digitalocean_record" "CNAME-datrs" {
   value = "datrs.netlify.com."
   ttl = 3600
 }
+
+resource "digitalocean_record" "CNAME-eleven" {
+  domain = "${digitalocean_domain.default.name}"
+  type = "CNAME"
+  name = "eleven"
+  value = "eleven.netlify.com."
+  ttl = 3600
+}
+
+resource "digitalocean_record" "CNAME-saisho" {
+  domain = "${digitalocean_domain.default.name}"
+  type = "CNAME"
+  name = "saisho"
+  value = "saisho.netlify.com."
+  ttl = 3600
+}
