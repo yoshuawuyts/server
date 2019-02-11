@@ -9,6 +9,7 @@ sudo apt install -y python-certbot-nginx -t stretch-backports
 sudo certbot run -n --nginx \
   -d yoshuawuyts.com \
   -d www.yoshuawuyts.com \
+  -d blog.yoshuawuyts.com \
   -d stats.yoshuawuyts.com \
   -m yoshuawuyts@gmail.com \
   --agree-tos

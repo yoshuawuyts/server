@@ -11,6 +11,14 @@ resource "digitalocean_record" "A-stats" {
   ttl = 3600
 }
 
+resource "digitalocean_record" "A-blog" {
+  domain = "${digitalocean_domain.default.name}"
+  type = "A"
+  name = "blog"
+  value = "${digitalocean_droplet.web.ipv4_address}"
+  ttl = 3600
+}
+
 resource "digitalocean_record" "CNAME-www" {
   domain = "${digitalocean_domain.default.name}"
   type = "CNAME"
