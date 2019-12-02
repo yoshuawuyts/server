@@ -19,6 +19,14 @@ resource "digitalocean_record" "A-blog" {
   ttl = 3600
 }
 
+resource "digitalocean_record" "A-rustjs" {
+  domain = "${digitalocean_domain.default.name}"
+  type = "A"
+  name = "rustjs"
+  value = "185.199.108.153"
+  ttl = 3600
+}
+
 resource "digitalocean_record" "CNAME-www" {
   domain = "${digitalocean_domain.default.name}"
   type = "CNAME"
